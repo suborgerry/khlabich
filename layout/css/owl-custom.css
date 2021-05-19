@@ -1,0 +1,75 @@
+.main_reviews_items.owl-carousel {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.owl-carousel .owl-nav {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  bottom: -1px;
+}
+
+.main_reviews .owl-carousel .owl-nav .owl-next, .main_reviews .owl-carousel .owl-nav .owl-prev {
+  padding: 16px 20px 10px 25px !important;
+  color: #CCCCCC;
+}
+.main_reviews .owl-carousel .owl-nav .owl-next span, .main_reviews .owl-carousel .owl-nav .owl-prev span {
+  font-size: 18px;
+}
+
+.owl-carousel .owl-nav button.owl-prev {
+  border-left: 1px solid #858585;
+  border-top: 1px solid #858585;
+}
+.owl-carousel .owl-nav button.owl-next {
+  border-right: 1px solid #858585;
+  border-top: 1px solid #858585;
+}
+.owl-carousel .owl-nav button:hover {
+  border-top: 1px solid #383838;
+  border-left: 1px solid #383838;
+  border-right: 1px solid #383838;
+}
+
+.owl-portfolio {
+  overflow-x: clip;
+}
+.owl-portfolio .owl-stage {
+  display: flex;
+}
+.owl-portfolio .owl-nav.disabled {
+  display: none;
+}
+
+.main_portfolio .owl-nav button {
+  border: none;
+  background: #fff;
+}
+.main_portfolio .owl-nav button.owl-prev {
+  border: 1px solid #858585;
+  padding: 16px 20px 10px 25px !important;
+  color: #CCCCCC;
+}
+.main_portfolio .owl-nav button.owl-prev span {
+  font-size: 18px;
+}
+.main_portfolio .owl-nav button.owl-next {
+  border: 1px solid #858585;
+  padding: 16px 20px 10px 25px !important;
+  color: #CCCCCC;
+}
+.main_portfolio .owl-nav button.owl-next span {
+  font-size: 18px;
+}
+.main_portfolio .owl-nav button:hover {
+  border: 1px solid #383838;
+}
+.main_portfolio .owl-stage-outer {
+  overflow: hidden;
+}
+
+.main_portfolio .owl-nav {
+  display: flex;
+  align-items: flex-end;
+}

@@ -10,9 +10,12 @@
         document.documentElement.classList.remove('no-js');
         document.documentElement.classList.add('js');
     </script>
-
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+    
+    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/owl-custom.css">
 
     <meta name="description" content="Page description">
     <meta property="og:title" content="Unique page title - My Site">
@@ -25,13 +28,303 @@
     <meta property="og:url" content="https://www.mywebsite.com/page">
     <link rel="canonical" href="https://www.mywebsite.com/page">
 
-    <link rel="icon" href="/favicon.ico">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/my.webmanifest">
-    <meta name="theme-color" content="#FF00FF">
+    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="theme-color" content="#14988B">
 </head>
 <body>
-    
+    <header>
+        <nav class="header_menu">
+            <img src="./images/logo.jpg" alt="Логотип 'Олег Хлябич'" class="header_logo">
+            <ul class="header_menu_items">
+                <li class="header_menu_item"><a class="header_menu_item_link" href="#">О нас</a></li>
+                <li class="header_menu_item"><a class="header_menu_item_link" href="#">Наша мебель</a></li>
+                <li class="header_menu_item"><a class="header_menu_item_link" href="#">Вопрос/Ответ</a></li>
+                <li class="header_menu_item"><a class="header_menu_item_link" href="#">Контакты</a></li>
+            </ul>
+        </nav>
+        <a class="header_telephone" href="tel:+38(050)123-45-67">+38 (050) 123-45-67</a>
+    </header>
+    <main>
+        <div class="main_banner" style="background: url(./images/main_banner.jpg);background-size: cover;">
+            <div class="main_banner_content">
+                <h1 class="main_banner_content_title">Создание мебели по индивидуальному проекту</h1>
+                <button type="button" class="main_banner_content_order open_popup">Заказать консультацию</button>
+            </div>
+        </div>
+        <div class="main_categories">
+            <a href="#" class="main_categories_item">
+                <img src="./images/category_img/kitchen.png" alt="Кухни" class="main_categories_item_img">
+                <span class="main_categories_item_title">Кухни</span>
+            </a>
+            <a href="#" class="main_categories_item">
+                <img src="./images/category_img/wardrobe.png" alt="Шкафы-купе" class="main_categories_item_img">
+                <span class="main_categories_item_title">Шкафы-купе</span>
+            </a>
+            <a href="#" class="main_categories_item">
+                <img src="./images/category_img/holl.png" alt="Прихожие" class="main_categories_item_img">
+                <span class="main_categories_item_title">Прихожие</span>
+            </a>
+            <a href="#" class="main_categories_item">
+                <img src="./images/category_img/bedroom.png" alt="Спальни" class="main_categories_item_img">
+                <span class="main_categories_item_title">Спальни</span>
+            </a>
+            <a href="#" class="main_categories_item">
+                <img src="./images/category_img/childroom.png" alt="Детские" class="main_categories_item_img">
+                <span class="main_categories_item_title">Детские</span>
+            </a>
+            <a href="#" class="main_categories_item">
+                <img src="./images/category_img/livingroom.png" alt="Гостинные" class="main_categories_item_img">
+                <span class="main_categories_item_title">Гостинные</span>
+            </a>
+            <a href="#" class="main_categories_item">
+                <img src="./images/category_img/tables.png" alt="Столы" class="main_categories_item_img">
+                <span class="main_categories_item_title">Столы</span>
+            </a>
+            <a href="#" class="main_categories_item">
+                <img src="./images/category_img/cupboard.png" alt="Шкафы" class="main_categories_item_img">
+                <span class="main_categories_item_title">Шкафы</span>
+            </a>
+        </div>
+        <div class="main_about">
+            <div class="main_about_text">
+                <h2 class="main_about_title">Проектирование и производство мебели на заказ от<br>Олега Хлябич.</h2>
+                <p class="main_about_maintext">
+                    Имея многолетний опыт и подходя индивидуально к каждому проекту,
+                    мы создаем качественную кухонную мебель, шкафы-купе, детские,прихожие и др.
+                    <br>
+                    <br>
+                    Вы находитесь на сайте, на котором найдете разработанные и созданные нами
+                    индивидуальные проекты мебели, статьи о выборе мебели и дизайне интерьера,
+                    ссылки на сайты об используемых нами материалах, образцы мебели мировых брендов,
+                    сможете скачать журналы о мебели.
+                </p>
+            </div>
+            <div class="main_about_logo">
+                <img src="./images/big_logo.png" alt="Главное лого. Олег Хлябич">
+            </div>
+        </div>
+        <div class="main_reviews">
+            <h2 class="main_reviews_title">Отзывы довольных клиентов</h2>
+            <div class="main_reviews_items owl-carousel">
+                <div class="main_review_item">
+                    <div class="main_review_item_client">
+                        <img src="./images/client.png" alt="Фотография клиента">
+                        <p class="review_client_about">
+                            <span class="review_client_about_name">Андрей Сергиенко</span>
+                            <span class="review_client_about_city">г. Киев</span>
+                        </p>
+                    </div>
+                    <p class="main_reviews_item_text">
+                        Явные признаки победы институционализации призывают нас к новым
+                        свершениям, которые, в свою очередь, должны быть преданы
+                        социально-демократической анафеме. Не следует, однако, забывать,
+                        что новая модель организационной деятельности влечет за собой процесс
+                        внедрения и модернизации поставленных обществом задач.
+                    </p>
+                </div>
+                <div class="main_review_item">
+                    <div class="main_review_item_client">
+                        <img src="./images/client.png" alt="Фотография клиента">
+                        <p class="review_client_about">
+                            <span class="review_client_about_name">Андрей Сергиенко</span>
+                            <span class="review_client_about_city">г. Киев</span>
+                        </p>
+                    </div>
+                    <p class="main_reviews_item_text">
+                        Явные признаки победы институционализации призывают нас к новым
+                        свершениям, которые, в свою очередь, должны быть преданы
+                        социально-демократической анафеме. Не следует, однако, забывать,
+                        что новая модель организационной деятельности влечет за собой процесс
+                        внедрения и модернизации поставленных обществом задач.
+                    </p>
+                </div>
+                <div class="main_review_item">
+                    <div class="main_review_item_client">
+                        <img src="./images/client.png" alt="Фотография клиента">
+                        <p class="review_client_about">
+                            <span class="review_client_about_name">Андрей Сергиенко</span>
+                            <span class="review_client_about_city">г. Киев</span>
+                        </p>
+                    </div>
+                    <p class="main_reviews_item_text">
+                        Явные признаки победы институционализации призывают нас к новым
+                        свершениям, которые, в свою очередь, должны быть преданы
+                        социально-демократической анафеме. Не следует, однако, забывать,
+                        что новая модель организационной деятельности влечет за собой процесс
+                        внедрения и модернизации поставленных обществом задач.
+                    </p>
+                </div>
+                <div class="main_review_item">
+                    <div class="main_review_item_client">
+                        <img src="./images/client.png" alt="Фотография клиента">
+                        <p class="review_client_about">
+                            <span class="review_client_about_name">Андрей Сергиенко</span>
+                            <span class="review_client_about_city">г. Киев</span>
+                        </p>
+                    </div>
+                    <p class="main_reviews_item_text">
+                        Явные признаки победы институционализации призывают нас к новым
+                        свершениям, которые, в свою очередь, должны быть преданы
+                        социально-демократической анафеме. Не следует, однако, забывать,
+                        что новая модель организационной деятельности влечет за собой процесс
+                        внедрения и модернизации поставленных обществом задач.
+                    </p>
+                </div>
+                <div class="main_review_item">
+                    <div class="main_review_item_client">
+                        <img src="./images/client.png" alt="Фотография клиента">
+                        <p class="review_client_about">
+                            <span class="review_client_about_name">Андрей Сергиенко</span>
+                            <span class="review_client_about_city">г. Киев</span>
+                        </p>
+                    </div>
+                    <p class="main_reviews_item_text">
+                        Явные признаки победы институционализации призывают нас к новым
+                        свершениям, которые, в свою очередь, должны быть преданы
+                        социально-демократической анафеме. Не следует, однако, забывать,
+                        что новая модель организационной деятельности влечет за собой процесс
+                        внедрения и модернизации поставленных обществом задач.
+                    </p>
+                </div>
+                <div class="main_review_item">
+                    <div class="main_review_item_client">
+                        <img src="./images/client.png" alt="Фотография клиента">
+                        <p class="review_client_about">
+                            <span class="review_client_about_name">Андрей Сергиенко</span>
+                            <span class="review_client_about_city">г. Киев</span>
+                        </p>
+                    </div>
+                    <p class="main_reviews_item_text">
+                        Явные признаки победы институционализации призывают нас к новым
+                        свершениям, которые, в свою очередь, должны быть преданы
+                        социально-демократической анафеме. Не следует, однако, забывать,
+                        что новая модель организационной деятельности влечет за собой процесс
+                        внедрения и модернизации поставленных обществом задач.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="main_portfolio">
+            <div class="main_portfolio_container">
+                <div class="main_portfolio_left owl-portfolio">
+                    <img src="./images/example.png" alt="Работа №1" class="main_portfolio_left_img" id="first-portfolio">
+                    <img src="./images/example.png" alt="Работа №2" class="main_portfolio_left_img">
+                    <img src="./images/example.png" alt="Работа №3" class="main_portfolio_left_img">
+                    <img src="./images/example.png" alt="Работа №4" class="main_portfolio_left_img">
+                </div>
+                <div class="owl-nav">
+                    <button type="button" role="presentation" class="owl-prev" id="owl-prev">
+                        <img src="images/prev.png">
+                    </button>
+                    <button type="button" role="presentation" class="owl-next" id="owl-next">
+                        <img src="images/next.png">
+                    </button>
+                </div>
+                <div class="main_portfolio_right">
+                    <div class="main_portfolio_right_container">
+                        <h2 class="main_portfolio_right_title">Мои лучшие работы</h2>
+                        <p class="main_portfolio_right_text">
+                            Банальные, но неопровержимые выводы, а также независимые государства,
+                            инициированные исключительно синтетически, преданы социально-демократической
+                            анафеме. Мы вынуждены отталкиваться от того, что современная методология
+                            разработки играет важную роль в формировании стандартных подходов.
+                        </p>
+                        <button type="button" class="main_portfolio_right_button open_popup" id="portfolio_button">
+                            Заказать консультацию
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_instagram">
+            <div class="main_instagram_about">
+                <h2 class="main_instagram_about_title">Наш Instagram</h2>
+                <p class="main_instagram_about_text">
+                    Больше примеров работ а так же много познавательного и полезщного контента,
+                    можете найти на нашей странице в Instagram.
+                </p>
+                <a href="https://www.instagram.com/mebel_of_the_dream/" target="_blank" type="button" class="main_instagram_about_button">Подписаться</a>
+            </div>
+            <div class="main_instagram_photos" id="inst-container"></div>
+        </div>
+    </main>
+    <footer>
+        <img class="footer_logo" src="./images/big_logo.png" alt="Логотип Олег Хлябич">
+        <div class="footer_container">
+            <div class="footer_container_over">
+                <ul class="footer_menu_items">
+                    <li class="footer_menu_item"><a class="footer_menu_item_link" href="#">О нас</a></li>
+                    <li class="footer_menu_item"><a class="footer_menu_item_link" href="#">Наша мебель</a></li>
+                    <li class="footer_menu_item"><a class="footer_menu_item_link" href="#">Вопрос/Ответ</a></li>
+                    <li class="footer_menu_item"><a class="footer_menu_item_link" href="#">Контакты</a></li>
+                </ul>
+                <a class="footer_telephone" href="tel:+38(050)123-45-67">+38 (050) 123-45-67</a>
+            </div>
+            <div class="footer_container_under">
+                <p class="footer_copyright_text">©2021. Designer Oleg Khlyabich</p>
+            </div>
+        </div>
+    </footer>
+    <div class="order_popup" id="order-popup">
+        <div class="order_popup_container">
+            <div class="order_popup_container_button_line">
+                <button class="order_popup_container_button" type="button" id="close-order-popup">&#x2715;</button>
+            </div>
+            <h3 class="order_popup_container_title">Заказать консультацию</h3>
+            <form method="POST" class="order_popup_container_form_group" id="message-block">
+                <input  type="text"   name="name"     id="order-user-name"   placeholder="Имя">
+                <input  type="tel"    name="number"   id="order-user-number" placeholder="Номер телефона">
+                <input  type="text"   name="question" id="order-user-ques"   placeholder="Ваш вопрос">
+                <button type="button" id="order-user-btn">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+    <script src="./js/instagram.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="owlcarousel/owl.carousel.min.js"></script>
+    <script src="./js/common.js"></script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 25,
+            nav: true,
+            navText: ["<img src='images/prev.png'>","<img src='images/next.png'>"],
+            dots:false,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                640: {
+                    items: 2
+                },
+                1020: {
+                    items: 3
+                },
+                1870: {
+                    items:4
+                }
+            }
+        });
+        $('.owl-portfolio').owlCarousel({
+            nav: false,
+            margin: 25,
+            navText: ["<img src='images/prev.png'>","<img src='images/next.png'>"],
+            dots: false,
+            items: 1
+        });
+        let owlPort = $(".owl-portfolio");
+        owlPort.owlCarousel();
+        $("#owl-next").click(function(){
+            owlPort.trigger("next.owl.carousel");
+        });
+        $("#owl-prev").click(function(){
+            owlPort.trigger("prev.owl.carousel");
+        });
+    </script>
 </body>
 </html>

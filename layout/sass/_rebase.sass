@@ -1,3 +1,5 @@
+/* Rebase styles */    
+
 /* Выставляем общие настройки по-умолчанию */
 html
   line-height: 1.15
@@ -63,17 +65,22 @@ img
   border-style: none
 
 *
-    transition: all ease 0.3s
-    
+  transition: all ease-in-out 0.3s
+  &::before
+    transition: all ease-in-out 0.3s
+  &::after
+    transition: all ease-in-out 0.3s
 /* Указываем понятную периодичность в потоке данных у article */
 article
     &> * + * 
         margin-top: 1em
 
-/* Удаляем все анимации и переходы для людей, которые предпочита.n их не использовать */
-@media (prefers-reduced-motion: reduce)
-    *
-        animation-duration: 0.01ms !important
-        animation-iteration-count: 1 !important
-        transition-duration: 0.01ms !important
-        scroll-behavior: auto !important
+/* Удаляем все анимации и переходы для людей, которые предпочитают их не использовать */
+// @media (prefers-reduced-motion: reduce)
+//     *
+//         animation-duration: 0.01ms !important
+//         animation-iteration-count: 1 !important
+//         transition-duration: 0.01ms !important
+//         scroll-behavior: auto !important
+
+/* End rebase styles */
