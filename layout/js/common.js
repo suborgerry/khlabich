@@ -65,7 +65,7 @@
                 let url = 'telegram.php';
                 let response = await fetch(url, {
                     method: 'POST',
-                    mode: 'no-cors',
+//                     mode: 'no-cors',
                     credentials: 'same-origin',
                     headers: {
                         'Content-Type': 'application/json'
