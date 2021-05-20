@@ -18,7 +18,7 @@
 
 
         $bot_token = "1876926736:AAEDkuSymfeRjVP9QFw1W63bRlTC79EHj2U";
-        // $chat_id   = "-1001200463032";
-        $chat_id   = "517243024";
+        $chat_id   = "-1001200463032";
+        // $chat_id   = "517243024";
         print_r($message);
         $responce = fopen("https://api.telegram.org/bot{$bot_token}/sendMessage?chat_id={$chat_id}&text={$message}", "r");

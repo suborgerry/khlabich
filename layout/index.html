@@ -34,17 +34,29 @@
     <meta name="theme-color" content="#14988B">
 </head>
 <body>
+    <nav class="header_mobile_menu" id="mobile-menu">
+        <div class="header_mobile_menu_line">
+            <button class="header_mobile_menu_button" type="button" id="togle-menu"><img src="./images/hamburger-menu.png" alt="Кнопка меню"></button>
+            <a class="header_telephone" href="tel:+38(050)123-45-67">+38 (050) 123-45-67</a>
+        </div>
+        <ul class="header_mobile_items">
+            <li class="header_mobile_item"><a class="header_mobile_item_link" href="#">О нас</a></li>
+            <li class="header_mobile_item"><a class="header_mobile_item_link" href="#">Наша мебель</a></li>
+            <li class="header_mobile_item"><a class="header_mobile_item_link" href="#">Вопрос/Ответ</a></li>
+            <li class="header_mobile_item"><a class="header_mobile_item_link" href="#">Контакты</a></li>
+        </ul>
+    </nav>
     <header>
         <nav class="header_menu">
             <img src="./images/logo.jpg" alt="Логотип 'Олег Хлябич'" class="header_logo">
-            <ul class="header_menu_items">
+            <ul class="header_menu_items" id="desctop-menu">
                 <li class="header_menu_item"><a class="header_menu_item_link" href="#">О нас</a></li>
                 <li class="header_menu_item"><a class="header_menu_item_link" href="#">Наша мебель</a></li>
                 <li class="header_menu_item"><a class="header_menu_item_link" href="#">Вопрос/Ответ</a></li>
                 <li class="header_menu_item"><a class="header_menu_item_link" href="#">Контакты</a></li>
             </ul>
         </nav>
-        <a class="header_telephone" href="tel:+38(050)123-45-67">+38 (050) 123-45-67</a>
+        <a class="header_telephone" id="desctop-telephone" href="tel:+38(050)123-45-67">+38 (050) 123-45-67</a>
     </header>
     <main>
         <div class="main_banner" style="background: url(./images/main_banner.jpg);background-size: cover;">
@@ -262,17 +274,17 @@
                 </ul>
                 <a class="footer_telephone" href="tel:+38(050)123-45-67">+38 (050) 123-45-67</a>
             </div>
-            <div class="footer_container_under">
-                <p class="footer_copyright_text">©2021. Designer Oleg Khlyabich</p>
-            </div>
         </div>
     </footer>
+    <div class="footer_container_under">
+        <p class="footer_copyright_text">©2021. Designer Oleg Khlyabich</p>
+    </div>
     <div class="order_popup" id="order-popup">
         <div class="order_popup_container">
             <div class="order_popup_container_button_line">
                 <button class="order_popup_container_button" type="button" id="close-order-popup">&#x2715;</button>
             </div>
-            <h3 class="order_popup_container_title">Заказать консультацию</h3>
+            <h3 class="order_popup_container_title" id="popup-title">Заказать консультацию</h3>
             <form method="POST" class="order_popup_container_form_group" id="message-block">
                 <input  type="text"   name="name"     id="order-user-name"   placeholder="Имя">
                 <input  type="tel"    name="number"   id="order-user-number" placeholder="Номер телефона">
@@ -299,7 +311,7 @@
                 0: {
                     items: 1
                 },
-                640: {
+                760: {
                     items: 2
                 },
                 1020: {

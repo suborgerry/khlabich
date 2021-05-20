@@ -395,7 +395,8 @@ footer
         opacity: 0.7
 
 .footer_container_under
-    margin-top: 20px
+    margin: 20px 0
+
 
 .footer_copyright_text
     font-style: normal
@@ -438,6 +439,9 @@ footer
     margin-top: 40px
     padding-right: 60px
     margin-bottom: 25px
+    &.hidden-end
+        display: none
+        opacity: 0
 
 .order_popup_container_form_group
     display: flex
@@ -477,6 +481,53 @@ footer
     display: flex
     justify-content: flex-end
 
+.header_mobile_menu
+    border-bottom: 1px solid
+    position: absolute
+    top: 0
+    width: 100vw
+    background: #14988B
+
+.header_mobile_menu_line
+    display: flex
+    align-items: center
+    justify-content: space-between
+    background: #14988B
+    .header_telephone
+        margin: 20px
+
+.header_mobile_items
+    display: flex
+    flex-direction: column
+    padding: 20px
+    list-style: none
+    font-size: 17px
+    font-weight: 500
+    margin-top: -300px
+    &.open
+        margin-top: 0px
+
+.header_mobile_item
+    display: inline-block
+    width: fit-content
+    padding: 10px 15px 10px 0
+
+.header_mobile_item_link
+    text-decoration: none
+    height: inherit
+    display: inline-block
+    color: #fff
+    font-size: 18px
+
+.header_mobile_menu_button
+    padding: 5px
+    border: 0
+    background: transparent
+    margin: 20px
+    img
+        max-height: 30px
+        max-width: 30px
+
 @keyframes alert
     0%
         transform: translateX(0px)
@@ -490,3 +541,126 @@ footer
         transform: translateX(-10px)
     100%
         transform: translateX(0px)
+
+@media ( max-width: 1440px )
+    .main_instagram_photos
+        & .common:nth-child(1)
+            width: 35%
+            height: 35%
+        & .common:nth-child(2)
+            width: 35%
+            height: 23%
+        & .common:nth-child(3)
+            width: 38%
+            height: 30%
+        & .common:nth-child(4)
+            width: 25%
+            height: 27%
+            margin-bottom: 30px !important
+
+@media ( max-width: 1070px )
+    .header_menu_items
+        font-size: 17px
+        margin-left: 20px
+
+@media ( max-width: 1020px )
+    .footer_container_over
+        &::after
+            width: 70%
+
+    header
+        margin-top: 100px
+
+    .main_categories
+        flex-wrap: wrap
+
+    .main_categories_item
+        flex-basis: 24%
+
+    .main_banner_content_title
+        max-width: 80%
+        text-align: center
+
+@media ( max-width: 900px )
+    .main_instagram
+        flex-direction: column
+        align-items: center
+    
+    .main_instagram_about
+        max-width: 80%
+
+    .main_instagram_photos
+        max-width: 100%
+
+    .main_portfolio_container
+        flex-direction: column
+        align-items: center
+        .owl-nav
+            align-items: center
+            justify-content: center
+            margin: 20px 0
+        
+    .footer_container_over
+        &::after
+            display: none
+
+@media ( max-width: 700px )
+    header
+        justify-content: center
+
+    .main_about
+        flex-direction: column
+
+    .main_about_logo
+        margin-top: 20px
+
+    .main_instagram
+        .main_instagram_photos
+            div.common
+                width: 100%
+
+    .footer_menu_items
+        flex-direction: column
+
+    .footer_menu_item
+        margin: 10px 20px
+
+    footer
+        align-items: center
+
+@media ( max-width: 550px )
+    .main_portfolio
+        padding: 0 50px
+
+    .main_categories_item
+        flex-basis: 48%
+
+    .main_categories_item_img
+        margin-top: 20px
+
+    .main_reviews
+        padding: 0 20px
+
+    .main_instagram
+        padding: 0 20px
+        margin-top: 80px
+
+    .main_categories
+        padding: 0 20px
+
+    .main_about
+        padding: 0 20px
+
+    .footer_telephone
+        margin-left: -50px
+
+    .main_banner
+        height: 300px
+
+@media ( max-width: 400px )
+    .main_banner_content_title
+        font-size: 26px
+
+    .header_logo
+        max-height: 148px
+        max-width: 150px

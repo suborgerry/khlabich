@@ -23,14 +23,25 @@
         function closePopup() {
             popup.style.opacity = "0";
 
-            setTimeout(displayNone, 1000);
+            setTimeout(displayNone, 500);
+
             function displayNone() {
+                const popupObj = {
+                    end: document.querySelector('.hidden-end'),
+                    form: document.querySelector('#message-block'),
+                    title: document.querySelector('#popup-title'),
+                };
+
                 popup.style.display = "none";
+                popupObj.end.remove();
+                popupObj.form.style.display = "flex";
+                popupObj.form.style.opacity = "1";
+                popupObj.title.style.display = "block";
+                popupObj.title.style.opacity = "1";
+                popupObj.form.reset()
             } 
         };
     };
-
-    popup && controlOfPopup();
 
     function sendQuestionToTelegram() {
         const sendButton = document.querySelector('#order-user-btn');
@@ -73,11 +84,33 @@
                     body: new FormData(messageObj.block)
                 });
 
-                console.log(new FormData(messageObj.block));
+                endOfRequest();
             } catch(error) {
                 console.error("Error: " + error)
             }
         }
+
+        function endOfRequest() {
+            const popupObj = {
+                container: document.querySelector('.order_popup_container'),
+                title: popup.querySelector('.order_popup_container_title'),
+                form: popup.querySelector('.order_popup_container_form_group'),
+                end: document.createElement('h3')
+            };
+            popupObj.end.classList.add('order_popup_container_title','hidden-end');
+            popupObj.end.innerHTML = "Ваш вопрос отправлен в обработку.<br>Пожалуйста ожидайте, с Вами свяжется наш менеджер";
+            popupObj.container.appendChild(popupObj.end);
+
+            popupObj.title.style.opacity = "0";
+            popupObj.form.style.opacity = "0";
+
+            setTimeout((() => {
+                popupObj.title.style.display = "none";
+                popupObj.form.style.display = "none";
+                popupObj.end.style.display = "block";
+                popupObj.end.style.opacity = "1"
+            }), 500)
+        };
 
         function alertInput(input) {
             input.classList.add('alert-input');
@@ -85,5 +118,33 @@
             setTimeout((() => { input.classList.remove('alert-input') }), 1500);
         }
     };
+    
+    const toggleMenuBtn = document.querySelector('#togle-menu');
+    function mobileMenu() {
+        toggleMenuBtn.addEventListener("click", toggleMenu);
+        function toggleMenu() {
+            let items = document.querySelector('.header_mobile_items');
+            items.classList.toggle('open');
+        }
+    };
+
+    function exchangeMenu() {
+        const menusObj = {
+            desctop: document.querySelector('#desctop-menu'),
+            mobile: document.querySelector('#mobile-menu'),
+            number: document.querySelector('#desctop-telephone')
+        };
+
+        if(window.innerWidth < 1020) {
+            menusObj.desctop.remove();
+            menusObj.number.remove();
+        } else {
+            menusObj.mobile.remove();
+        }
+    }
+
+    exchangeMenu();
+    toggleMenuBtn && mobileMenu();
+    popup && controlOfPopup();
     sendQuestionToTelegram();
 })();
