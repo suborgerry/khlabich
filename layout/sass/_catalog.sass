@@ -1,0 +1,58 @@
+.catalog_title
+    font-size: 36px
+    font-weight: 600
+    text-align: center
+    margin-top: 90px
+
+.catalog_menu
+    max-width: 1440px
+    margin: auto
+
+.catalog_portfolio_container
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    width: 100%
+    height: fit-content
+    padding: 0 80px
+    max-width: 1440px
+    margin: auto
+    margin-top: 100px
+    margin-bottom: 120px
+    gap: 20px
+
+.catalog_portfolio_item
+    display: flex
+    position: relative
+    // flex-basis: 30%
+    max-width: 373px
+    max-height: 476px
+    padding: 20px
+    overflow: hidden
+    background: #fff
+    box-shadow: 10px 0px 20px rgba(0, 0, 0, 0.1)
+    &:hover
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.25)
+        transform: scale(1.03)
+    &:nth-child(n+4)
+        margin-top: 20px
+
+.catalog_portfolio_item_image
+    object-fit: cover
+    width: 100%
+
+.catalog_portfolio_item_text
+    font-weight: 500
+    position: absolute
+    bottom: 0
+    background: #14988B
+    color: #fff
+    font-size: 18px
+    padding: 20px 10px
+    width: 350px
+    text-align: center
+    margin-bottom: 50px
+
+.catalog_portfolio_item
+    max-width: 373px
+    max-height: 476px
