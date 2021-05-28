@@ -827,6 +827,100 @@ footer {
   max-height: 476px;
 }
 
+.modal_portfolio {
+  position: fixed;
+  top: 0;
+  background: #00000060;
+  width: calc( 100% - 130px );
+  height: calc( 100% - 80px );
+  padding: 40px 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal_portfolio .owl-stage {
+  display: flex;
+}
+
+.modal_portfolio_container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: #fff;
+  max-width: 1280px;
+  max-height: 788px;
+  padding: 40px 108px 69px;
+}
+
+.modal_portfolio_close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px;
+}
+.modal_portfolio_close:hover {
+  cursor: pointer;
+}
+
+.modal_portfolio_main {
+  display: flex;
+  justify-content: center;
+}
+
+.modal_portfolio_main_left {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  width: 88px;
+  overflow: hidden;
+  margin-left: 103px;
+  margin-top: 20px;
+}
+.modal_portfolio_main_left .owl-item img {
+  width: 88px;
+  height: 88px;
+}
+
+.modal_portfolio_main_container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal_portfolio_main_right {
+  margin-left: 72px;
+  border: 20px solid #fff;
+  overflow: hidden;
+  box-shadow: 10px 0px 20px rgba(0, 0, 0, 0.1);
+}
+.modal_portfolio_main_right img {
+  width: inherit;
+  height: inherit;
+  max-width: 666px;
+  max-height: 462px;
+}
+
+.modal_portfolio_main_container img {
+  width: 88px;
+  height: 88px;
+}
+
+.modal_portfolio_about {
+  margin-top: 40px;
+  font-size: 18px;
+}
+
+.modal_portfolio_about_title {
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.modal_portfolio_about_text {
+  font-weight: 500;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
 @media (max-width: 1590px) {
   .catalog_portfolio_container {
     width: auto;
@@ -859,6 +953,37 @@ footer {
   .catalog_portfolio_item_text {
     width: calc((348px/100)*80);
     font-size: 16px;
+  }
+
+  .modal_portfolio_container {
+    max-height: 440px;
+  }
+
+  .modal_portfolio_main {
+    max-height: 360px;
+  }
+
+  .modal_portfolio_about_text {
+    font-size: 16px;
+  }
+
+  .modal_portfolio_about_title {
+    font-size: 22px;
+  }
+
+  .modal_portfolio_about {
+    margin-top: 20px;
+    font-size: 13px;
+  }
+
+  .modal_portfolio_main_left {
+    width: 105px;
+  }
+  .modal_portfolio_main_left div.owl-stage-outer {
+    overflow-y: scroll;
+  }
+  .modal_portfolio_main_left ::-webkit-scrollbar {
+    opacity: 0;
   }
 }
 @media (max-width: 1190px) {

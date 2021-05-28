@@ -161,6 +161,9 @@
             </div>
         </div>
     </main>
+    <div class="modal_portfolio" id="modal-portfolio">
+
+    </div>
     <footer>
         <img class="footer_logo" src="./images/big_logo.png" alt="Логотип Олег Хлябич">
         <div class="footer_container">
@@ -196,7 +199,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="owlcarousel/owl.carousel.min.js"></script>
     <script src="./js/common.js"></script>
-    <script>
+    <!-- <script>
         $('.owl-carousel').owlCarousel({
             loop: true,
             margin: 25,
@@ -223,6 +226,23 @@
         });
         $('.owl-portfolio').owlCarousel({
             nav: false,
+            margin: 25,
+            navText: ["<img src='images/prev.png'>","<img src='images/next.png'>"],
+            dots: false,
+            items: 1
+        });
+        let owlPort = $(".owl-portfolio");
+        owlPort.owlCarousel();
+        $("#owl-next").click(function(){
+            owlPort.trigger("next.owl.carousel");
+        });
+        $("#owl-prev").click(function(){
+            owlPort.trigger("prev.owl.carousel");
+        });
+    </script> -->
+    <script>
+        $('.owl-modal-portfolio').owlCarousel({
+            nav: true,
             margin: 25,
             navText: ["<img src='images/prev.png'>","<img src='images/next.png'>"],
             dots: false,

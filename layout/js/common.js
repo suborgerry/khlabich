@@ -143,8 +143,111 @@
         }
     }
 
+
+    const catalogPortfolioContainer = document.querySelector('.catalog_portfolio_container');
+    function modalPortfolio() {
+        let modalElements = {
+            container: document.createElement('div'),
+            main: document.createElement('div'),
+            mainLeft: document.createElement('div'),
+            mainContainerFirst: document.createElement('div'),
+            mainContainerSecond: document.createElement('div'),
+            mainContainerThird: document.createElement('div'),
+            mainContainerForth: document.createElement('div'),
+            mainRight: document.createElement('div'),
+            about: document.createElement('div'),
+            aboutTitle: document.createElement('h4'),
+            aboutText: document.createElement('p'),
+            closeButton: document.createElement('button'),
+        }
+
+        const images = {
+            0: './images/portfolio/e.jpg',
+            1: './images/portfolio/q.jpg',
+            2: './images/portfolio/w.jpg',
+            3: './images/portfolio/z.jpg',
+            4: './images/portfolio/z.jpg',
+            5: './images/portfolio/w.jpg',
+            6: './images/portfolio/q.jpg',
+            7: './images/portfolio/e.jpg'
+        };
+
+        modalElements.container.classList.add('modal_portfolio_container');
+        modalElements.main.classList.add('modal_portfolio_main');
+        modalElements.mainLeft.classList.add('modal_portfolio_main_left', 'owl-modal-portfolio');
+        modalElements.mainContainerFirst.classList.add('modal_portfolio_main_container');
+        modalElements.mainContainerSecond.classList.add('modal_portfolio_main_container');
+        modalElements.mainContainerThird.classList.add('modal_portfolio_main_container');
+        modalElements.mainContainerForth.classList.add('modal_portfolio_main_container');
+        modalElements.mainRight.classList.add('modal_portfolio_main_right');
+        modalElements.about.classList.add('modal_portfolio_about');
+        modalElements.aboutTitle.classList.add('modal_portfolio_about_title');
+        modalElements.aboutText.classList.add('modal_portfolio_about');
+        modalElements.closeButton.classList.add('order_popup_container_button', 'modal_portfolio_close');
+        modalElements.closeButton.setAttribute('type', 'button');
+        modalElements.closeButton.id = 'close-portfolio-popup';
+        modalElements.closeButton.innerHTML = '&#x2715;';
+
+        let imageCount = 0;
+        for (let key in images) {
+            if(imageCount < 4) {
+                console.log(images[key]);
+                let prevImage = document.createElement('img');
+
+                prevImage.setAttribute('src', images[key]);
+                modalElements.mainContainerFirst.prepend(prevImage);
+                modalElements.mainLeft.append(modalElements.mainContainerFirst);
+                imageCount++
+            } else if (imageCount < 8) {
+                let prevImage = document.createElement('img');
+
+                prevImage.setAttribute('src', images[key]);
+                modalElements.mainContainerSecond.prepend(prevImage);
+                modalElements.mainLeft.append(modalElements.mainContainerSecond);
+                imageCount++
+            } else if (imageCount < 12) {
+                let prevImage = document.createElement('img');
+
+                prevImage.setAttribute('src', images[key]);
+                modalElements.mainContainerThird.prepend(prevImage);
+                modalElements.mainLeft.append(modalElements.mainContainerThird);
+                imageCount++
+            } else if (imageCount < 16) {
+                let prevImage = document.createElement('img');
+
+                prevImage.setAttribute('src', images[key]);
+                modalElements.mainContainerForth.prepend(prevImage);
+                modalElements.mainLeft.append(modalElements.mainContainerThird);
+                imageCount++
+            };
+        };
+
+        let fullImage = document.createElement('img');
+        fullImage.setAttribute('src', './images/portfolio/e.jpg');
+        modalElements.mainRight.append(fullImage);
+
+        modalElements.main.prepend(modalElements.mainLeft);
+        modalElements.main.append(modalElements.mainRight);
+        modalElements.container.prepend(modalElements.main);
+
+        modalElements.aboutTitle.innerText = 'Кухня для Дмитрия из г. Каменец-Подольский';
+        modalElements.aboutText.innerText = 'Приятно, граждане, наблюдать, как акционеры крупнейших компаний лишь добавляют фракционных разногласий и описаны максимально подробно. В своём стремлении улучшить пользовательский опыт мы упускаем, что стремящиеся вытеснить традиционное производство, нанотехнологии своевременно верифицированы.';
+        
+        modalElements.about.prepend(modalElements.aboutTitle);
+        modalElements.about.append(modalElements.aboutText);
+
+        modalElements.container.append(modalElements.about);
+        modalElements.container.append(modalElements.closeButton);
+
+        let modalParent = document.querySelector('#modal-portfolio');
+        modalParent.append(modalElements.container);
+
+        console.log(modalElements.container);
+    };
+
     exchangeMenu();
     toggleMenuBtn && mobileMenu();
     popup && controlOfPopup();
     sendQuestionToTelegram();
+    catalogPortfolioContainer && modalPortfolio();
 })();
