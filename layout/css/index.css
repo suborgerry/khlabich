@@ -890,7 +890,6 @@ footer {
   width: 88px;
   overflow: hidden;
   margin-left: 103px;
-  margin-top: 20px;
   gap: 20px;
   max-height: 420px;
 }
@@ -902,6 +901,9 @@ footer {
 .modal_portfolio_main_left > img {
   height: 88px;
   position: relative;
+}
+.modal_portfolio_main_left::-webkit-scrollbar {
+  opacity: 0;
 }
 
 .modal_portfolio_main_container {
@@ -1046,10 +1048,6 @@ footer {
     width: 80%;
     max-height: 90%;
   }
-
-  .modal_portfolio_main_left {
-    width: 250px;
-  }
 }
 @media (max-width: 900px) {
   .main_instagram {
@@ -1096,7 +1094,6 @@ footer {
   }
 
   .modal_portfolio_main_left {
-    width: 350px;
     margin-left: 13px;
   }
 
@@ -1106,6 +1103,10 @@ footer {
 
   .modal_portfolio_container {
     padding: 20px 60px 50px;
+  }
+
+  .modal_portfolio_main_left > img {
+    height: auto;
   }
 }
 @media (max-width: 700px) {
@@ -1169,9 +1170,13 @@ footer {
     font-size: 18px;
   }
 
+  .modal_portfolio_main_left {
+    width: 80%;
+    overflow-y: scroll;
+  }
+
   .modal_portfolio_main_right {
-    width: 100%;
-    height: 100%;
+    display: none;
   }
 }
 @media (max-width: 550px) {
@@ -1264,11 +1269,6 @@ footer {
   }
   .modal_portfolio .owl-stage div.owl-item {
     width: 360px !important;
-  }
-
-  .modal_portfolio_main_left {
-    overflow: visible;
-    width: 250px;
   }
 
   .modal_portfolio_main_right {

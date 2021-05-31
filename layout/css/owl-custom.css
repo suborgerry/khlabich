@@ -104,10 +104,9 @@
 .modal_portfolio_main_left .owl-nav button {
   border: none;
   background: #fff;
-  width: 43px;
-  height: 43px;
+  width: 44px;
+  height: 44px;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 .modal_portfolio_main_left .owl-nav button.owl-prev {

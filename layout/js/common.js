@@ -289,6 +289,9 @@
 
                 if (evt.target.classList.contains("modal_portfolio_main_left_img")) {
                     fullImage.src = evt.target.src;
+                    if(window.innerWidth < 700) {
+                        evt.target.classList.toggle('zooms')
+                    }
                 }
             });
 
