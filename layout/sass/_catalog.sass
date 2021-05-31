@@ -64,11 +64,16 @@
     width: calc( 100% - 130px )
     height: calc( 100% - 80px )
     padding: 40px 65px
-    display: flex
+    opacity: 0
+    display: none
     align-items: center
     justify-content: center
     .owl-stage
         display: flex
+        flex-direction: column
+        max-height: 400px
+        align-items: flex-start
+        width: 88px !important
 
 .modal_portfolio_container
     display: flex
@@ -81,6 +86,10 @@
     // width: calc( 100% - 216px )
     padding: 40px 108px 69px
 
+.portfolio_trigger
+    &:hover
+        cursor: pointer
+
 .modal_portfolio_close
     position: absolute
     top: 0
@@ -92,6 +101,7 @@
 .modal_portfolio_main
     display: flex
     justify-content: center
+    position: relative
 
 .modal_portfolio_main_left
     width: 30%
@@ -101,10 +111,15 @@
     overflow: hidden
     margin-left: 103px
     margin-top: 20px
-    .owl-item
-        img
-            width: 88px
-            height: 88px
+    gap: 20px
+    max-height: 420px
+    .owl-nav
+        position: absolute
+        bottom: 0
+        display: flex
+    &>img
+        height: 88px
+        position: relative
 
 
 .modal_portfolio_main_container

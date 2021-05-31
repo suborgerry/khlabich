@@ -16,12 +16,12 @@
 
             setTimeout(opacityVisible, 100);
             function opacityVisible() {
-                popup.style.opacity = "1";
+                popup.style.opacity = 1;
             }
         };
 
         function closePopup() {
-            popup.style.opacity = "0";
+            popup.style.opacity = 0;
 
             setTimeout(displayNone, 500);
 
@@ -35,9 +35,9 @@
                 popup.style.display = "none";
                 popupObj.end.remove();
                 popupObj.form.style.display = "flex";
-                popupObj.form.style.opacity = "1";
+                popupObj.form.style.opacity = 1;
                 popupObj.title.style.display = "block";
-                popupObj.title.style.opacity = "1";
+                popupObj.title.style.opacity = 1;
                 popupObj.form.reset()
             } 
         };
@@ -101,14 +101,14 @@
             popupObj.end.innerHTML = "Ваш вопрос отправлен в обработку.<br>Пожалуйста ожидайте, с Вами свяжется наш менеджер";
             popupObj.container.appendChild(popupObj.end);
 
-            popupObj.title.style.opacity = "0";
-            popupObj.form.style.opacity = "0";
+            popupObj.title.style.opacity = 0;
+            popupObj.form.style.opacity = 0;
 
             setTimeout((() => {
                 popupObj.title.style.display = "none";
                 popupObj.form.style.display = "none";
                 popupObj.end.style.display = "block";
-                popupObj.end.style.opacity = "1"
+                popupObj.end.style.opacity = 1;
             }), 500)
         };
 
@@ -145,7 +145,68 @@
 
 
     const catalogPortfolioContainer = document.querySelector('.catalog_portfolio_container');
-    function modalPortfolio() {
+    const catalogElementPopup       = document.querySelector('#modal-portfolio');
+
+    catalogPortfolioContainer && catalogPortfolioContainer.addEventListener('click', evt => {
+        if(evt.target.classList.contains('portfolio_trigger') && evt.target.matches('div')) {
+            let title = evt.target.querySelector('.catalog_portfolio_item_text');
+            let text  = evt.target.querySelector('.catalog_portfolio_item_hidden');
+            
+            title = title.innerText;
+            text  = text.innerText.replace(/\r?\n/g, "");
+
+            openPortfolioElement(title, text);
+        } else if(evt.target.parentElement.matches('div') && evt.target.parentElement.classList.contains('portfolio_trigger')) {
+            let title = evt.target.parentElement.querySelector('.catalog_portfolio_item_text');
+            let text  = evt.target.parentElement.querySelector('.catalog_portfolio_item_hidden');
+            
+            title = title.innerText;
+            text  = text.innerText.replace(/\r?\n/g, "");
+
+            openPortfolioElement(title, text);
+        };
+
+        let closeBtn = document.querySelector('#close-portfolio-popup');
+        closeBtn.addEventListener('click', closePortfolioElement);
+    });
+
+    function openPortfolioElement(title, text) {
+        modalPortfolio(title, text);
+
+        catalogElementPopup.style.display = 'flex';
+        setTimeout(() => {
+            catalogElementPopup.style.opacity = 1;
+        }, 150);
+
+        $('.owl-modal-portfolio').owlCarousel({
+            items: 1,
+            nav: true,
+            margin: 25,
+            navText: ["<img src='images/prev.png'>","<img src='images/next.png'>"],
+            dots: false,
+            animateOut: 'slideOutUp',
+            animateIn: 'slideInUp'
+        });
+        let owlPort = $(".owl-portfolio");
+        owlPort.owlCarousel();
+        $("#owl-next").click(function(){
+            owlPort.trigger("next.owl.carousel");
+        });
+        $("#owl-prev").click(function(){
+            owlPort.trigger("prev.owl.carousel");
+        });
+    };
+
+    function closePortfolioElement() {
+        let containerPortfolio = document.querySelector('.modal_portfolio_container');
+        catalogElementPopup.style.opacity = 0;
+        setTimeout(() => {
+        catalogElementPopup.style.display = 'none';
+        }, 700);
+        containerPortfolio.remove();
+    }
+
+    function modalPortfolio(title, text) {
         let modalElements = {
             container: document.createElement('div'),
             main: document.createElement('div'),
@@ -159,6 +220,9 @@
             aboutTitle: document.createElement('h4'),
             aboutText: document.createElement('p'),
             closeButton: document.createElement('button'),
+            nav: document.createElement('div'),
+            prevButton: document.createElement('button'),
+            nextButton: document.createElement('button')
         }
 
         const images = {
@@ -169,12 +233,13 @@
             4: './images/portfolio/z.jpg',
             5: './images/portfolio/w.jpg',
             6: './images/portfolio/q.jpg',
-            7: './images/portfolio/e.jpg'
+            7: './images/portfolio/e.jpg',
+            8: './images/portfolio/z.jpg',
         };
 
         modalElements.container.classList.add('modal_portfolio_container');
         modalElements.main.classList.add('modal_portfolio_main');
-        modalElements.mainLeft.classList.add('modal_portfolio_main_left', 'owl-modal-portfolio');
+        modalElements.mainLeft.classList.add('modal_portfolio_main_left', 'owl-mdodal-portfolio');
         modalElements.mainContainerFirst.classList.add('modal_portfolio_main_container');
         modalElements.mainContainerSecond.classList.add('modal_portfolio_main_container');
         modalElements.mainContainerThird.classList.add('modal_portfolio_main_container');
@@ -187,39 +252,65 @@
         modalElements.closeButton.setAttribute('type', 'button');
         modalElements.closeButton.id = 'close-portfolio-popup';
         modalElements.closeButton.innerHTML = '&#x2715;';
+        modalElements.nav.classList.add('owl-nav');
+        modalElements.prevButton.classList.add('owl-prev');
+        modalElements.nextButton.classList.add('owl-next');
+        modalElements.prevButton.setAttribute('type', 'button');
+        modalElements.nextButton.setAttribute('type', 'button');
 
-        let imageCount = 0;
+        modalElements.prevButton.innerHTML = '<img src="images/prev.png">';
+        modalElements.nextButton.innerHTML = '<img src="images/next.png">';
+
+        modalElements.nav.append(modalElements.prevButton, modalElements.nextButton);
+
         for (let key in images) {
-            if(imageCount < 4) {
-                console.log(images[key]);
-                let prevImage = document.createElement('img');
+            let prevImage = document.createElement('img');
+            prevImage.classList.add('modal_portfolio_main_left_img')
+            prevImage.setAttribute('src', images[key]);
+            modalElements.mainLeft.append(prevImage);
+        };
 
-                prevImage.setAttribute('src', images[key]);
-                modalElements.mainContainerFirst.prepend(prevImage);
-                modalElements.mainLeft.append(modalElements.mainContainerFirst);
-                imageCount++
-            } else if (imageCount < 8) {
-                let prevImage = document.createElement('img');
+        modalElements.mainLeft.append(modalElements.nav);
 
-                prevImage.setAttribute('src', images[key]);
-                modalElements.mainContainerSecond.prepend(prevImage);
-                modalElements.mainLeft.append(modalElements.mainContainerSecond);
-                imageCount++
-            } else if (imageCount < 12) {
-                let prevImage = document.createElement('img');
+        // if(modalElements.mainLeft != null) {
+        //     modalElements.mainLeft.addEventListener('click')
+        //     if (evt.target.matches("img")) {
+        //         console.log(evt.target);
+        //     }
+        // };
 
-                prevImage.setAttribute('src', images[key]);
-                modalElements.mainContainerThird.prepend(prevImage);
-                modalElements.mainLeft.append(modalElements.mainContainerThird);
-                imageCount++
-            } else if (imageCount < 16) {
-                let prevImage = document.createElement('img');
+        if(modalElements.mainLeft != null) {
+            modalElements.mainLeft.addEventListener('click', evt => {
+                if(evt.target.classList.contains('owl-prev') || evt.target.parentElement.classList.contains('owl-prev')) {
+                    clidePortfolio(false);
+                } else if (evt.target.classList.contains('owl-next') || evt.target.parentElement.classList.contains('owl-next')) {
+                    clidePortfolio(true);
+                };
 
-                prevImage.setAttribute('src', images[key]);
-                modalElements.mainContainerForth.prepend(prevImage);
-                modalElements.mainLeft.append(modalElements.mainContainerThird);
-                imageCount++
-            };
+                if (evt.target.classList.contains("modal_portfolio_main_left_img")) {
+                    fullImage.src = evt.target.src;
+                }
+            });
+
+            let imgMarginCount = 108;
+
+            function clidePortfolio(direction) {
+                let marginImg = modalElements.mainLeft.childNodes[0].style.marginTop;
+                marginImg = parseInt(marginImg) ? parseInt(marginImg) : 0;
+
+                if(modalElements.mainLeft.scrollHeight > 520 && direction) {
+                    let marginTopImg = parseInt('-108');
+
+                    modalElements.mainLeft.childNodes[0].style.marginTop = marginImg + marginTopImg + 'px';
+                } else if (imgMarginCount < 0 && imgMarginCount != 0 && !direction) {
+                    let marginTopImg = parseInt('108');
+
+                    modalElements.mainLeft.childNodes[0].style.marginTop = marginImg + marginTopImg + 'px';
+                };
+                
+                imgMarginCount = document.querySelector('.modal_portfolio_main_left').querySelectorAll('img')[0].style.marginTop;
+                imgMarginCount = parseInt(imgMarginCount);
+            }
         };
 
         let fullImage = document.createElement('img');
@@ -230,8 +321,8 @@
         modalElements.main.append(modalElements.mainRight);
         modalElements.container.prepend(modalElements.main);
 
-        modalElements.aboutTitle.innerText = 'Кухня для Дмитрия из г. Каменец-Подольский';
-        modalElements.aboutText.innerText = 'Приятно, граждане, наблюдать, как акционеры крупнейших компаний лишь добавляют фракционных разногласий и описаны максимально подробно. В своём стремлении улучшить пользовательский опыт мы упускаем, что стремящиеся вытеснить традиционное производство, нанотехнологии своевременно верифицированы.';
+        modalElements.aboutTitle.innerText = title;
+        modalElements.aboutText.innerText = text;
         
         modalElements.about.prepend(modalElements.aboutTitle);
         modalElements.about.append(modalElements.aboutText);
@@ -241,13 +332,17 @@
 
         let modalParent = document.querySelector('#modal-portfolio');
         modalParent.append(modalElements.container);
-
-        console.log(modalElements.container);
     };
 
     exchangeMenu();
     toggleMenuBtn && mobileMenu();
     popup && controlOfPopup();
     sendQuestionToTelegram();
-    catalogPortfolioContainer && modalPortfolio();
+    // ccatalogPortfolioContainer && (() => { 
+    //     modalPortfolio();
+    //     catalogElementPopup.style.display = 'flex';
+    //     setTimeout(() => {
+    //         catalogElementPopup.style.opacity = 1;
+    //     }, 150);
+    // })();
 })();

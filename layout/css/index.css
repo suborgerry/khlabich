@@ -110,6 +110,12 @@ article > * + * {
   margin-top: 1em;
 }
 
+.hidden {
+  display: none;
+  visibility: none;
+  opacity: 0;
+}
+
 /* Удаляем все анимации и переходы для людей, которые предпочитают их не использовать */
 /* End rebase styles */
 /**/
@@ -834,12 +840,17 @@ footer {
   width: calc( 100% - 130px );
   height: calc( 100% - 80px );
   padding: 40px 65px;
-  display: flex;
+  opacity: 0;
+  display: none;
   align-items: center;
   justify-content: center;
 }
 .modal_portfolio .owl-stage {
   display: flex;
+  flex-direction: column;
+  max-height: 400px;
+  align-items: flex-start;
+  width: 88px !important;
 }
 
 .modal_portfolio_container {
@@ -850,6 +861,10 @@ footer {
   max-width: 1280px;
   max-height: 788px;
   padding: 40px 108px 69px;
+}
+
+.portfolio_trigger:hover {
+  cursor: pointer;
 }
 
 .modal_portfolio_close {
@@ -865,6 +880,7 @@ footer {
 .modal_portfolio_main {
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .modal_portfolio_main_left {
@@ -875,10 +891,17 @@ footer {
   overflow: hidden;
   margin-left: 103px;
   margin-top: 20px;
+  gap: 20px;
+  max-height: 420px;
 }
-.modal_portfolio_main_left .owl-item img {
-  width: 88px;
+.modal_portfolio_main_left .owl-nav {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+}
+.modal_portfolio_main_left > img {
   height: 88px;
+  position: relative;
 }
 
 .modal_portfolio_main_container {
@@ -997,7 +1020,7 @@ footer {
     margin-left: 20px;
   }
 }
-@media (max-width: 1020px) {
+@media (max-width: 1030px) {
   .footer_container_over::after {
     width: 70%;
   }
@@ -1017,6 +1040,15 @@ footer {
   .main_banner_content_title {
     max-width: 80%;
     text-align: center;
+  }
+
+  .modal_portfolio_container {
+    width: 80%;
+    max-height: 90%;
+  }
+
+  .modal_portfolio_main_left {
+    width: 250px;
   }
 }
 @media (max-width: 900px) {
@@ -1061,6 +1093,19 @@ footer {
 
   .catalog_portfolio_item_text {
     width: calc((342px/100)*65);
+  }
+
+  .modal_portfolio_main_left {
+    width: 350px;
+    margin-left: 13px;
+  }
+
+  .modal_portfolio_main_right {
+    margin-left: 0px;
+  }
+
+  .modal_portfolio_container {
+    padding: 20px 60px 50px;
   }
 }
 @media (max-width: 700px) {
@@ -1110,6 +1155,23 @@ footer {
 
   .catalog_title {
     padding: 0 50px;
+  }
+
+  .modal_portfolio_main {
+    max-height: 250px;
+  }
+
+  p.modal_portfolio_about {
+    font-size: 11px;
+  }
+
+  .modal_portfolio_about_title {
+    font-size: 18px;
+  }
+
+  .modal_portfolio_main_right {
+    width: 100%;
+    height: 100%;
   }
 }
 @media (max-width: 550px) {
@@ -1161,6 +1223,56 @@ footer {
 
   .footer_container {
     margin-left: 50px;
+  }
+
+  .modal_portfolio {
+    padding: 10px 30px;
+    width: calc( 100% - 60px );
+    height: calc( 100% - 20px );
+  }
+
+  .modal_portfolio_container {
+    padding: 10px;
+    width: 95%;
+    max-height: 80%;
+    height: 100%;
+  }
+
+  .modal_portfolio_main {
+    flex-direction: column;
+    max-height: 80%;
+  }
+  .modal_portfolio_main img {
+    width: auto;
+  }
+
+  .modal_portfolio_about_title {
+    font-size: 20px;
+  }
+
+  .modal_portfolio_main_container {
+    flex-direction: row;
+  }
+
+  p.modal_portfolio_about {
+    font-size: 11px;
+    display: none;
+  }
+
+  .modal_portfolio .owl-stage {
+    gap: 20px;
+  }
+  .modal_portfolio .owl-stage div.owl-item {
+    width: 360px !important;
+  }
+
+  .modal_portfolio_main_left {
+    overflow: visible;
+    width: 250px;
+  }
+
+  .modal_portfolio_main_right {
+    width: calc(100% - 40px);
   }
 }
 @media (max-width: 450px) {
