@@ -56,10 +56,27 @@
 
     .contacts_title
         margin-top: 190px
+    
+    .about_title
+        margin-top: 190px
+        
 @media ( max-width: 1070px )
     .header_menu_items
         font-size: 17px
         margin-left: 20px
+
+    .faq_container
+        justify-content: center
+
+    .faq_item
+        flex-basis: 90%
+        justify-content: center
+
+@media ( min-width: 1070px )
+    .faq_item
+        &:nth-child(2n+2)
+            justify-content: flex-end
+            
 
 @media ( max-width: 1030px )
     .footer_container_over
