@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ua" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="module">
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
+    
+    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/owl-custom.css">
+
+    <meta name="description" content="Page description">
+    <meta property="og:title" content="Unique page title - My Site">
+    <meta property="og:description" content="Page description">
+    <meta property="og:image" content="https://www.mywebsite.com/image.jpg">
+    <meta property="og:image:alt" content="Image description">
+    <meta property="og:locale" content="uk_UA">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:url" content="https://www.mywebsite.com/page">
+    <link rel="canonical" href="https://www.mywebsite.com/page">
+
+    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="theme-color" content="#14988B">
+</head>
+<body>
+    <nav class="header_mobile_menu" id="mobile-menu">
+        <div class="header_mobile_menu_line">
+            <button class="header_mobile_menu_button" type="button" id="togle-menu"><img src="./images/hamburger-menu.png" alt="Кнопка меню"></button>
+            <a class="header_telephone" href="tel:+38(050)123-45-67">+38 (050) 123-45-67</a>
+        </div>
+        <ul class="header_mobile_items">
+            <li class="header_mobile_item"><a class="header_mobile_item_link" href="#">О нас</a></li>
+            <li class="header_mobile_item"><a class="header_mobile_item_link" href="#">Наша мебель</a></li>
+            <li class="header_mobile_item"><a class="header_mobile_item_link" href="#">Вопрос/Ответ</a></li>
+            <li class="header_mobile_item"><a class="header_mobile_item_link" href="#">Контакты</a></li>
+        </ul>
+    </nav>
+    <header>
+        <nav class="header_menu">
+            <img src="./images/logo.jpg" alt="Логотип 'Олег Хлябич'" class="header_logo">
+            <ul class="header_menu_items" id="desctop-menu">
+                <li class="header_menu_item"><a class="header_menu_item_link" href="#">О нас</a></li>
+                <li class="header_menu_item"><a class="header_menu_item_link" href="#">Наша мебель</a></li>
+                <li class="header_menu_item"><a class="header_menu_item_link" href="#">Вопрос/Ответ</a></li>
+                <li class="header_menu_item"><a class="header_menu_item_link" href="#">Контакты</a></li>
+            </ul>
+        </nav>
+        <a class="header_telephone" id="desctop-telephone" href="tel:+38(050)123-45-67">+38 (050) 123-45-67</a>
+    </header>
+    <main class="contacts">
+        <h2 class="contacts_title">
+            Контактная информация
+        </h2>
+        <div class="contacts_container">
+            <div class="contacts_container_items">
+                <div class="contacts_container_item">
+                    <img src="./images/contacts/callus.png" alt="Позвоните нам" class="contacts_container_item_image">
+                    <h4 class="contacts_container_item_title">Позвоните нам</h4>
+                    <p class="contacts_container_item_text">Есть вопросы? Мы ответим!</p>
+                    <a href="tel:+38(050)123-45-67" class="contacts_container_item_contact">
+                        +38 (050) 123-45-67
+                    </a>
+                </div>
+                <div class="contacts_container_item">
+                    <img src="./images/contacts/sendus.png" alt="Напишите нам" class="contacts_container_item_image">
+                    <h4 class="contacts_container_item_title">Напишите нам</h4>
+                    <p class="contacts_container_item_text">
+                        Есть идеи или предложения?
+                        Пишите, мы открыты для любых
+                        вопросов.
+                    </p>
+                    <a href="mailto:oleg@khlyabich.ua" class="contacts_container_item_contact">
+                        oleg@khlyabich.ua
+                    </a>
+                </div>
+                <div class="contacts_container_item">
+                    <img src="./images/contacts/reviewus.png" alt="Напишите нам" class="contacts_container_item_image">
+                    <h4 class="contacts_container_item_title">Напишите нам</h4>
+                    <p class="contacts_container_item_text">
+                        Поделитесь своим мнением
+                        о нашей работе. Ваши отзывы
+                        важны для нас.
+                    </p>
+                    <button class="contacts_container_item_order">Оставить отзыв</button>
+                </div>
+            </div>
+            <button type="button" class="contacts_container_button open_popup" id="contacts_order">Заказать консультацию</button>
+        </div>
+    </main>
+    <footer>
+        <img class="footer_logo" src="./images/big_logo.png" alt="Логотип Олег Хлябич">
+        <div class="footer_container">
+            <div class="footer_container_over">
+                <ul class="footer_menu_items">
+                    <li class="footer_menu_item"><a class="footer_menu_item_link" href="#">О нас</a></li>
+                    <li class="footer_menu_item"><a class="footer_menu_item_link" href="#">Наша мебель</a></li>
+                    <li class="footer_menu_item"><a class="footer_menu_item_link" href="#">Вопрос/Ответ</a></li>
+                    <li class="footer_menu_item"><a class="footer_menu_item_link" href="#">Контакты</a></li>
+                </ul>
+                <a class="footer_telephone" href="tel:+38(050)123-45-67">+38 (050) 123-45-67</a>
+            </div>
+        </div>
+    </footer>
+    <div class="footer_container_under">
+        <p class="footer_copyright_text">©2021. Designer Oleg Khlyabich</p>
+    </div>
+    <div class="order_popup" id="order-popup" data-container-type="order">
+        <div class="order_popup_container">
+            <div class="order_popup_container_button_line">
+                <button class="order_popup_container_button" type="button" id="close-order-popup">&#x2715;</button>
+            </div>
+            <h3 class="order_popup_container_title" id="popup-title">Заказать консультацию</h3>
+            <form method="POST" class="order_popup_container_form_group" id="message-block">
+                <!-- <input  type="hidden" 
+                    name="location" 
+                    id="order-user-location" 
+                    placeholder="Имя" 
+                    value="CООБЩЕНИЕ С САЙТА"> -->
+                <input  type="text"   name="name"     id="order-user-name"   placeholder="Имя">
+                <input  type="tel"    name="number"   id="order-user-number" placeholder="Номер телефона">
+                <input  type="text"   name="question" id="order-user-ques"   placeholder="Ваш вопрос">
+                <button type="button" id="order-user-btn">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+    <div class="order_popup" id="review-popup" data-container-type="review">
+        <div class="order_popup_container">
+            <div class="order_popup_container_button_line">
+                <button class="order_popup_container_button" type="button" id="close-order-popup">&#x2715;</button>
+            </div>
+            <h3 class="order_popup_container_title" id="popup-title">Оставить отзыв</h3>
+            <form method="POST" class="order_popup_container_form_group" id="message-block">
+                <!-- <input  type="hidden" 
+                        name="location" 
+                        id="order-user-location" 
+                        placeholder="Имя" 
+                        value="ОТЗЫВ"> -->
+                <input  type="text"   name="name"     id="order-user-name"     placeholder="Имя">
+                <input  type="tel"    name="number"   id="order-user-number"   placeholder="Номер телефона">
+                <input  type="text"   name="question" id="order-user-ques"     placeholder="Ваш отзыв">
+                <button type="button" id="order-user-btn">Оставить отзыв</button>
+            </form>
+        </div>
+    </div>
+    <script src="./js/instagram.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="owlcarousel/owl.carousel.min.js"></script>
+    <script src="./js/common.js"></script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 25,
+            nav: true,
+            navText: ["<img src='images/prev.png'>","<img src='images/next.png'>"],
+            dots:false,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                760: {
+                    items: 2
+                },
+                1020: {
+                    items: 3
+                },
+                1870: {
+                    items:4
+                }
+            }
+        });
+        $('.owl-portfolio').owlCarousel({
+            nav: false,
+            margin: 25,
+            navText: ["<img src='images/prev.png'>","<img src='images/next.png'>"],
+            dots: false,
+            items: 1
+        });
+        let owlPort = $(".owl-portfolio");
+        owlPort.owlCarousel();
+        $("#owl-next").click(function(){
+            owlPort.trigger("next.owl.carousel");
+        });
+        $("#owl-prev").click(function(){
+            owlPort.trigger("prev.owl.carousel");
+        });
+    </script>
+</body>
+</html>

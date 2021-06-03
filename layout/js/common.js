@@ -1,39 +1,44 @@
 (() => {
-    const popup = document.querySelector('#order-popup');
-    function controlOfPopup() {
-        const closeBtn = document.querySelector('#close-order-popup');
+    const orderPopup  = document.querySelector('#order-popup');
+    const reviewPopup = document.querySelector('#review-popup');
 
+    function controlOfPopup() {
         document.body.addEventListener('click', evt => {
             if(evt.target.matches('.open_popup')) {
-                openPopup();
+                openPopup(orderPopup);
+                sendQuestionToTelegram(orderPopup);
+            } else if (evt.target.matches('.contacts_container_item_order')) {
+                openPopup(reviewPopup);
+                sendQuestionToTelegram(reviewPopup);
             }
         });
 
-        closeBtn.addEventListener('click', closePopup);
 
-        function openPopup() {
-            popup.style.display = "flex";
+        function openPopup(container) {
+            container.style.display = "flex";
 
             setTimeout(opacityVisible, 100);
             function opacityVisible() {
-                popup.style.opacity = 1;
+                container.style.opacity = 1;
             }
+            const closeBtn = container.querySelector('#close-order-popup');
+            closeBtn.addEventListener('click', () => { closePopup(container) });
         };
 
-        function closePopup() {
-            popup.style.opacity = 0;
+        function closePopup(container) {
+            container.style.opacity = 0;
 
             setTimeout(displayNone, 500);
 
             function displayNone() {
                 const popupObj = {
-                    end: document.querySelector('.hidden-end'),
-                    form: document.querySelector('#message-block'),
-                    title: document.querySelector('#popup-title'),
+                    end: container.querySelector('.hidden-end'),
+                    form: container.querySelector('#message-block'),
+                    title: container.querySelector('#popup-title'),
                 };
 
-                popup.style.display = "none";
-                popupObj.end.remove();
+                container.style.display = "none";
+                popupObj.end ? popupObj.end.remove() : false;
                 popupObj.form.style.display = "flex";
                 popupObj.form.style.opacity = 1;
                 popupObj.title.style.display = "block";
@@ -43,18 +48,20 @@
         };
     };
 
-    function sendQuestionToTelegram() {
-        const sendButton = document.querySelector('#order-user-btn');
+    function sendQuestionToTelegram(container) {
+        let checkContainer = container.dataset.containerType
+
+        const sendButton = container.querySelector('#order-user-btn');
         if (sendButton === null) { return };
                 
         sendButton.addEventListener('click', sendMessage)
         async function sendMessage() {
             try {
                 const messageObj = {
-                    block: document.querySelector('#message-block'),
-                    name: document.querySelector('#order-user-name'),
-                    number: document.querySelector('#order-user-number'),
-                    question: document.querySelector('#order-user-ques'),
+                    block: container.querySelector('#message-block'),
+                    name: container.querySelector('#order-user-name'),
+                    number: container.querySelector('#order-user-number'),
+                    question: container.querySelector('#order-user-ques'),
                 };
 
                 let regex = /^(\+38|38)?[\s\-]?\(?[0][0-9]{2}\)?[\s\-]?[0-9]{3}?[0-9]{2}?[0-9]{2}$/;
@@ -76,7 +83,7 @@
                 let url = 'telegram.php';
                 let response = await fetch(url, {
                     method: 'POST',
-//                     mode: 'no-cors',
+                    mode: 'no-cors',
                     credentials: 'same-origin',
                     headers: {
                         'Content-Type': 'application/json'
@@ -84,21 +91,28 @@
                     body: new FormData(messageObj.block)
                 });
 
-                endOfRequest();
+                endOfRequest(checkContainer);
             } catch(error) {
                 console.error("Error: " + error)
             }
         }
 
-        function endOfRequest() {
+        function endOfRequest(checkContainer) {
             const popupObj = {
-                container: document.querySelector('.order_popup_container'),
-                title: popup.querySelector('.order_popup_container_title'),
-                form: popup.querySelector('.order_popup_container_form_group'),
+                container: container.querySelector('.order_popup_container'),
+                title: container.querySelector('.order_popup_container_title'),
+                form: container.querySelector('.order_popup_container_form_group'),
                 end: document.createElement('h3')
             };
+            
             popupObj.end.classList.add('order_popup_container_title','hidden-end');
-            popupObj.end.innerHTML = "Ваш вопрос отправлен в обработку.<br>Пожалуйста ожидайте, с Вами свяжется наш менеджер";
+
+            if(checkContainer === 'order') {
+                popupObj.end.innerHTML = "Ваш вопрос отправлен в обработку.<br>Пожалуйста ожидайте, с Вами свяжется наш менеджер";
+            } else if (checkContainer === 'review') {
+                popupObj.end.innerHTML = "Спасибо большое за Ваш отзыв!";
+            }
+
             popupObj.container.appendChild(popupObj.end);
 
             popupObj.title.style.opacity = 0;
@@ -339,8 +353,7 @@
 
     exchangeMenu();
     toggleMenuBtn && mobileMenu();
-    popup && controlOfPopup();
-    sendQuestionToTelegram();
+    orderPopup && controlOfPopup();
     // ccatalogPortfolioContainer && (() => { 
     //     modalPortfolio();
     //     catalogElementPopup.style.display = 'flex';

@@ -1,10 +1,11 @@
 <?php
-        $name      = $_POST['name'];
-        $number    = $_POST['number'];
-        $question  = $_POST['question'];
+        $where_from = $_POST['location'];
+        $name       = $_POST['name'];
+        $number     = $_POST['number'];
+        $question   = $_POST['question'];
 
         $data_user = array(
-            'СООБЩЕНИЕ С САЙТА' => '',
+            'СООБЩЕНИЕ С САЙТА' => $where_from,
             'Имя: ' => $name,
             'Телефон: ' => $number,
             'Вопрос: ' => $question
